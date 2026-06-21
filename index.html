@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlowBeauty – Beauty & Skincare</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- =============================================
+     HEADER
+     ============================================= -->
+    <header>
+        <div class="logo">
+            <span class="logo-icon">🌸</span>
+            <div class="logo-text">
+                <h1><span class="glow">Glow</span><span class="beauty">Beauty</span></h1>
+                <p>Beauty &amp; Skincare</p>
+            </div>
+        </div>
+
+        <div class="header-actions">
+            <button class="icon-btn" onclick="openSearch()" title="Cari">🔍</button>
+            <button class="icon-btn" id="cartBtn" title="Keranjang" onclick="openCart()">
+                🛒
+                <span class="cart-count" id="cartBadge" style="display:none;">0</span>
+            </button>
+            <button class="btn-login" id="headerAuthBtn">Login / Register</button>
+        </div>
+    </header>
+
+    <!-- =============================================
+     NAVIGATION
+     ============================================= -->
+    <nav>
+        <span class="nav-link active" data-page="home">Home</span>
+        <span class="nav-link" data-page="about">About</span>
+        <span class="nav-link" data-page="products">Product</span>
+        <span class="nav-link" data-page="contact">Contact</span>
+    </nav>
+
+    <!-- =============================================
+     PAGE: HOME
+     ============================================= -->
+    <div class="page active" id="page-home">
+        <div class="home-layout">
+
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <div class="sidebar-title">CATEGORIES</div>
+                <span class="sidebar-category" onclick="filterCategory('Skincare')">SKINCARE</span>
+                <span class="sidebar-category" onclick="filterCategory('Serum Bottle')">Serum bottle</span>
+                <span class="sidebar-category" onclick="filterCategory('Moisturizer')">Moisturizer</span>
+
+                <div class="promo-card">
+                    <div class="promo-icon">🌸</div>
+                    <div class="promo-label">Special promo!</div>
+                    <div class="promo-sub">Disc. Up To</div>
+                    <div class="promo-pct">30% OFF</div>
+                    <button class="btn-primary" style="margin-top:12px; font-size:13px; padding:9px 22px;"
+                        onclick="navigateTo('products')">Shop Now</button>
+                </div>
+            </aside>
+
+            <!-- Main -->
+            <main class="home-main">
+
+                <!-- Hero Banner -->
+                <div class="hero-banner">
+                    <div class="hero-text">
+                        <p>Natural Beauty</p>
+                        <h2><em>Glow Your Skin</em></h2>
+                        <p class="hero-desc">discover the best skincare products for healthy, glowing skin every day.
+                        </p>
+                        <button class="btn-primary" onclick="navigateTo('products')">Shop Now</button>
+                    </div>
+                    <div class="hero-img">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=200&h=200&fit=crop&crop=center"
+                            alt="Glow Beauty"
+                            style="width:130px; height:130px; border-radius:50%; object-fit:cover; box-shadow: 0 8px 30px rgba(233,30,140,0.25);">
+                    </div>
+                </div>
+
+                <!-- Best Sellers -->
+                <h3 class="section-title">Our Best Seller</h3>
+                <div class="products-grid">
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://i.pinimg.com/736x/a5/16/bd/a516bd2190bc20b13a4e6048df2de641.jpg"
+                                alt="Serum Bottle" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="product-card-body">
+                            <div>
+                                <div class="product-name">serum bottle</div>
+                                <div class="product-price">Rp 60.000</div>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart('Serum Bottle')"
+                                title="Tambah ke keranjang">🛒</button>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-card-img">
+                            <img src="https://i.pinimg.com/736x/ad/18/9e/ad189ec34753ff3f2893431d5c350636.jpg"
+                                alt="Moisturizer" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                        <div class="product-card-body">
+                            <div>
+                                <div class="product-name">Moisturizer</div>
+                                <div class="product-price">Rp 65.000</div>
+                            </div>
+                            <button class="add-cart-btn" onclick="addToCart('Moisturizer')"
+                                title="Tambah ke keranjang">🛒</button>
+                        </div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div><!-- /page-home -->
+
+    <!-- =============================================
+     PAGE: ABOUT
+     ============================================= -->
+    <div class="page" id="page-about">
+        <div class="about-page">
+
+            <div class="about-header">
+                <h2>About <em>GlowBeauty</em></h2>
+                <div class="underline"></div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-text">
+                    <p>GlowBeauty is a skincare brand that is committed to providing high quality skincare products made
+                        with natural ingredients that are safe for all skin types.</p>
+                    <p>Our mission is to help everyone feel confident with healthy, glowing skin every day.</p>
+                </div>
+                <div class="about-illustration">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=300&h=300&fit=crop&crop=center"
+                        alt="Skincare" style="width:200px; height:200px; border-radius:50%; object-fit:cover;">
+                </div>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🌿</div>
+                    <div class="feature-title">Natural Ingredients</div>
+                    <div class="feature-desc">We use natural ingredients that are safe and gentle for your skin.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <div class="feature-title">High Quality</div>
+                    <div class="feature-desc">Selected ingredients with high quality standards for best results.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <div class="feature-title">Affordable Price</div>
+                    <div class="feature-desc">High quality products with affordable prices for everyone.</div>
+                </div>
+            </div>
+
+        </div>
+    </div><!-- /page-about -->
+
+    <!-- =============================================
+     PAGE: PRODUCTS
+     ============================================= -->
+    <div class="page" id="page-products">
+        <div class="product-page">
+            <h2 class="product-page-title">Our Products</h2>
+
+            <div class="products-full-grid">
+
+                <div class="product-full-card">
+                    <div class="product-full-img">
+                        <img src="https://i.pinimg.com/736x/a5/16/bd/a516bd2190bc20b13a4e6048df2de641.jpg"
+                            alt="Serum Bottle" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-full-body">
+                        <div class="product-full-name">Serum Bottle</div>
+                        <div class="product-full-desc">Brightening serum to glow your skin</div>
+                    </div>
+                    <div class="product-full-footer">
+                        <span class="product-full-price">Rp 60.000</span>
+                        <button class="cart-btn" onclick="addToCart('Serum Bottle')">🛒</button>
+                    </div>
+                </div>
+
+                <div class="product-full-card">
+                    <div class="product-full-img">
+                        <img src="https://i.pinimg.com/736x/ad/18/9e/ad189ec34753ff3f2893431d5c350636.jpg"
+                            alt="Moisturizer" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-full-body">
+                        <div class="product-full-name">Moisturizer</div>
+                        <div class="product-full-desc">Moisturizer for soft and healthy skin</div>
+                    </div>
+                    <div class="product-full-footer">
+                        <span class="product-full-price">Rp 65.000</span>
+                        <button class="cart-btn" onclick="addToCart('Moisturizer')">🛒</button>
+                    </div>
+                </div>
+
+                <div class="product-full-card">
+                    <div class="product-full-img">
+                        <img src="https://i.pinimg.com/1200x/1e/32/bd/1e32bdda62f2f247bb8e0e9188f1eec6.jpg"
+                            alt="Toner" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-full-body">
+                        <div class="product-full-name">Toner</div>
+                        <div class="product-full-desc">Toner to refresh and hydrate your skin</div>
+                    </div>
+                    <div class="product-full-footer">
+                        <span class="product-full-price">Rp 50.000</span>
+                        <button class="cart-btn" onclick="addToCart('Toner')">🛒</button>
+                    </div>
+                </div>
+
+                <div class="product-full-card">
+                    <div class="product-full-img">
+                        <img src="https://i.pinimg.com/736x/6b/98/03/6b9803080d0c883d54f2a1a189787cea.jpg"
+                            alt="Facial Wash" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-full-body">
+                        <div class="product-full-name">Facial Wash</div>
+                        <div class="product-full-desc">Gently clean and refresh your skin</div>
+                    </div>
+                    <div class="product-full-footer">
+                        <span class="product-full-price">Rp 45.000</span>
+                        <button class="cart-btn" onclick="addToCart('Facial Wash')">🛒</button>
+                    </div>
+                </div>
+
+                <div class="product-full-card">
+                    <div class="product-full-img">
+                        <img src="https://i.pinimg.com/1200x/21/e0/49/21e049b0a7ab39c91e5e714599fddc12.jpg"
+                            alt="Sunscreen" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-full-body">
+                        <div class="product-full-name">Sunscreen</div>
+                        <div class="product-full-desc">Protect your skin from UV rays</div>
+                    </div>
+                    <div class="product-full-footer">
+                        <span class="product-full-price">Rp 55.000</span>
+                        <button class="cart-btn" onclick="addToCart('Sunscreen')">🛒</button>
+                    </div>
+                </div>
+
+                <div class="product-full-card">
+                    <div class="product-full-img">
+                        <img src="https://i.pinimg.com/1200x/b8/97/44/b89744f4fe98d5a746daf6889e274c1a.jpg"
+                            alt="Night Cream" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+                    <div class="product-full-body">
+                        <div class="product-full-name">Night Cream</div>
+                        <div class="product-full-desc">Nourish your skin while you sleep</div>
+                    </div>
+                    <div class="product-full-footer">
+                        <span class="product-full-price">Rp 70.000</span>
+                        <button class="cart-btn" onclick="addToCart('Night Cream')">🛒</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div><!-- /page-products -->
+
+    <!-- =============================================
+     PAGE: CONTACT
+     ============================================= -->
+    <div class="page" id="page-contact">
+        <div class="contact-page">
+            <h2>Contact Us</h2>
+
+            <div class="contact-layout">
+
+                <!-- Info -->
+                <div class="contact-info-list">
+                    <div class="contact-info-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>arita@glowbeauty.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Jl. Kutacane  No. 123<br>Aceh Tenggara, Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="contactName">Your Name</label>
+                        <input type="text" id="contactName" class="form-control" placeholder="Nama lengkap Anda" />
+                    </div>
+                    <div class="form-group">
+                        <label for="contactEmail">Email</label>
+                        <input type="email" id="contactEmail" class="form-control" placeholder="email@example.com" />
+                    </div>
+                    <div class="form-group">
+                        <label for="contactMsg">Message</label>
+                        <textarea id="contactMsg" class="form-control"
+                            placeholder="Tulis pesan Anda di sini..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary" style="align-self:flex-start;">Send Message</button>
+                </form>
+
+            </div>
+        </div>
+    </div><!-- /page-contact -->
+
+    <!-- =============================================
+     PAGE: LOGIN
+     ============================================= -->
+    <div class="page" id="page-login">
+        <div class="auth-page">
+            <div class="auth-card">
+                <div class="auth-illustration">🌸</div>
+                <h2 class="auth-title">Login <span class="auth-icon">🌸</span></h2>
+                <p class="auth-sub">Welcome back!</p>
+
+                <form class="auth-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <div class="input-group">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="loginEmail" class="form-control" placeholder="email@example.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPass">Password</label>
+                        <div class="input-group">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="loginPass" class="form-control" placeholder="••••••••" />
+                            <button type="button" class="input-eye"
+                                onclick="togglePassword('loginPass', this)">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="remember-row">
+                        <label><input type="checkbox" /> Remember me</label>
+                        <a>Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width:100%; padding:14px;">Login</button>
+                </form>
+
+                <p class="auth-link" style="margin-top:18px;">
+                    Don't have an account? <a onclick="navigateTo('register')">Register here</a>
+                </p>
+            </div>
+        </div>
+    </div><!-- /page-login -->
+
+    <!-- =============================================
+     PAGE: REGISTER
+     ============================================= -->
+    <div class="page" id="page-register">
+        <div class="auth-page">
+            <div class="auth-card">
+                <div class="auth-illustration">🌸</div>
+                <h2 class="auth-title">Register <span class="auth-icon">🌸</span></h2>
+                <p class="auth-sub">Create a new account</p>
+
+                <form class="auth-form" id="registerForm">
+                    <div class="form-group">
+                        <label for="regName">Your Name</label>
+                        <div class="input-group">
+                            <span class="input-icon">👤</span>
+                            <input type="text" id="regName" class="form-control" placeholder="Nama lengkap" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <div class="input-group">
+                            <span class="input-icon">📧</span>
+                            <input type="email" id="regEmail" class="form-control" placeholder="email@example.com" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPass">Password</label>
+                        <div class="input-group">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="regPass" class="form-control" placeholder="••••••••" />
+                            <button type="button" class="input-eye"
+                                onclick="togglePassword('regPass', this)">👁️</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regConfirm">Confirm Password</label>
+                        <div class="input-group">
+                            <span class="input-icon">🔒</span>
+                            <input type="password" id="regConfirm" class="form-control" placeholder="••••••••" />
+                            <button type="button" class="input-eye"
+                                onclick="togglePassword('regConfirm', this)">👁️</button>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width:100%; padding:14px;">Register</button>
+                </form>
+
+                <p class="auth-link" style="margin-top:18px;">
+                    Already have an account? <a onclick="navigateTo('login')">Login here</a>
+                </p>
+            </div>
+        </div>
+    </div><!-- /page-register -->
+
+    <!-- =============================================
+     PAGE: CART
+     ============================================= -->
+    <div class="page" id="page-cart">
+        <div class="auth-page">
+            <div class="auth-card" style="max-width:500px;">
+                <h2 class="auth-title">🛒 Keranjang Belanja</h2>
+                <div id="cartItemsContainer">
+                    <p style="text-align:center; color:#aaa; padding:40px 0;">Keranjang kosong 🛒</p>
+                </div>
+                <button class="btn-primary" style="width:100%; margin-top:20px; padding:14px;" onclick="checkout()">
+                        Checkout
+                    </button>
+                <p class="auth-link" style="margin-top:12px;">
+                    <a onclick="navigateTo('products')">← Lanjut belanja</a>
+                </p>
+            </div>
+        </div>
+    </div><!-- /page-cart -->
+
+    <!-- =============================================
+     FOOTER
+     ============================================= -->
+    <footer>
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="logo" style="cursor:default; gap:8px;">
+                    <span style="font-size:24px;">🌸</span>
+                    <div class="logo-text">
+                        <h1 style="font-size:18px;"><span class="glow">Glow</span><span class="beauty">Beauty</span>
+                        </h1>
+                        <p>Beauty &amp; Skincare</p>
+                    </div>
+                </div>
+                <p>Your trusted skincare partner for natural and healthy beauty.</p>
+            </div>
+
+            <div class="footer-section">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a onclick="navigateTo('home')">Home</a></li>
+                    <li><a onclick="navigateTo('about')">About Us</a></li>
+                    <li><a onclick="navigateTo('products')">Products</a></li>
+                    <li><a>Blog</a></li>
+                    <li><a onclick="navigateTo('contact')">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>CUSTOMER SERVICE</h4>
+                <ul>
+                    <li><a>FAQ</a></li>
+                    <li><a>Shipping &amp; Delivery</a></li>
+                    <li><a>Returns</a></li>
+                    <li><a>Terms &amp; Conditions</a></li>
+                    <li><a>Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>FOLLOW US</h4>
+                <div class="social-icons">
+                    <span class="social-icon" title="Instagram">📸</span>
+                    <span class="social-icon" title="Facebook">👍</span>
+                    <span class="social-icon" title="TikTok">🎵</span>
+                    <span class="social-icon" title="YouTube">▶️</span>
+                </div>
+                <p style="margin-top:16px;">Email: arita@glowbeauty.com</p>
+                <p>Phone: +62 812 3456 7890</p>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 GlowBeauty. All rights reserved. Made with 🌸 for healthy skin.
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+
+</html>
